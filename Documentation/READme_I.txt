@@ -18,7 +18,7 @@
 
 2. Authentication : Roles
    - i add field in DB role So in migrations :
-      ==> $table->enum('role',['admin','user'])->default('user');
+      ==> $table->enum('role',['admin','user'])->default('user'); //by default user
    - in Models/User.php add role 
       ===>  protected $fillable = [
         'name',
@@ -30,5 +30,21 @@
     - php artisan migrate:rollback // En mode production ,if you ever need to undo the last migration without losing your entire database
     - php artisan migrate:status // You can check which migrations have been run using
 
-
- 
+3. Seeding : Add Admin
+    - seeding : adding fake data to DB
+     ==> Seeding in Laravel is a way to populate your database with sample data for testing or development purposes.
+    - create new seeder : php artisan make:seeder AdminSeeder
+      -- is create on : C:\xampp\htdocs\Ecommerce\database\seeders\AdminSeeder.php 
+         In class AdminSeeder.php : I add new user 
+           /*    public function run(): void
+             {
+                 DB::table('users')->insert([
+                      [
+                         'name' => 'Admin',
+                         "email" => "admin@admin.com",
+                         "role" => "admin",
+                         "password" => Hash::make("123456789") //Hash for hashinmg mdp in DB.
+                      ]
+                 ]);
+             } */
+    - Call seeder : php artisan db:seed --class=AdminSeeder
