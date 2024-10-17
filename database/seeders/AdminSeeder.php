@@ -19,7 +19,7 @@ class AdminSeeder extends Seeder
                 'name' => 'Admin',
                 "email" => "admin@admin.com",
                 "role" => "admin",
-                "password" => Hash::make("123456789")
+                "password" => Hash::make("123456789") //Hash FOR HASSING MDP
              ]
         ]);
     }

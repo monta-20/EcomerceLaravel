@@ -8,7 +8,8 @@
    --  php artisan ui bootstrap --auth 
      ===> For Bootstrap authentication scaffolding
    -- run : npm install
-   -- run : npm run dev   
+   -- run : npm run dev 
+   -- in views folder auth , layout and file home.blade.php and in app/Http/Controllers/Auth all this files follow install Auth.
    -- php artisan migrate : create table Users is the table responsable for register , login and logout.
    -- Ican register and login and logout and all data stored in table Users.
    -- visit : http://127.0.0.1:8000/home
@@ -48,3 +49,30 @@
                  ]);
              } */
     - Call seeder : php artisan db:seed --class=AdminSeeder
+4. Dashboard : Admin & Client
+    - We differentiate betwwen client and admin when login and render to different page
+    - In views we create two folder admin and client and we create in two dashboard.blade.php
+    - create routes :
+    /*
+             //Route to page admin/dashboard
+         Route::get('/admin/dashboard',);
+         
+         //Route to page client/dashboard
+         Route::get('/client/dashboard',);
+    */
+    -create two controller for admin and client : 
+      - php artisan make:controller AdminController
+      - php artisan make:controller ClientController
+      - So code in controller to render to views : 
+         ==> AdminController : public function dashboard(){ return view('admin.dashboard');}
+         ==> ClientController : public function dashboard(){ return view('client.dashboard');}
+      - Now i remark if i login i enter to home page (home.blade.php) ===> i change this code to when i redirect 
+      from user go to user page and other case for client
+      This old code in HomeController.php ===>  public function index(){return view('home');}
+      So i change this code to :  
+              public function index()
+            {
+               // dd(Auth::user()->role);//find all data for user
+               return (Auth::user()->role == 'admin') ? redirect('/admin/dashboard') : redirect('/client/dashboard');
+               //return view('home');
+            }
