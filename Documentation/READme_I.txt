@@ -76,3 +76,10 @@
                return (Auth::user()->role == 'admin') ? redirect('/admin/dashboard') : redirect('/client/dashboard');
                //return view('home');
             }
+5. Integrate Pheonix Dashboard to administration
+     - Integrate template Pheonix on admin dashboard 
+     - Create dashassests under public folder and i copy css,img,js folder who is under assets folder in template
+     - Copyt index.html in admin.dashboard.blade.php and i do change in template 
+     - Reamrk : for views image in dashboard must 
+     ==> {{ asset('dashassests/....')}} //for access under public folder
+      Example : <img src="{{ asset('dashassests/img/nav-icons/trello.png')}}" alt="" width="30">

@@ -25,8 +25,14 @@ class HomeController extends Controller
     public function index()
     {
        // dd(Auth::user()->role);//find all data for user
-       return (Auth::user()->role == 'admin') ? redirect('/admin/dashboard') : redirect('/client/dashboard');
-      
-        //return view('home');
+       if (Auth::check()) {
+        // Check the user role
+        return (Auth::user()->role == 'admin') 
+            ? redirect('/admin/dashboard') 
+            : redirect('/client/dashboard');
+    }
+
+    // If user is not authenticated, show the home page
+    return view('home');
     }
 }
