@@ -30,8 +30,8 @@ class HomeController extends Controller
         return (Auth::user()->role == 'admin') 
             ? redirect('/admin/dashboard') 
             : redirect('/client/dashboard');
-    }
-
+       }
+     
     // If user is not authenticated, show the home page
     return view('home');
     }

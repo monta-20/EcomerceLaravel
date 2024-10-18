@@ -156,7 +156,10 @@
         </nav>
         <div class="content">
           <div class="pb-5">
-            Dashb
+           <!-- Button to trigger modal -->
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#categoryModal">
+                      Add Category
+              </button>
           </div>
          
           <footer class="footer">
@@ -172,9 +175,35 @@
         </div>
       </div>
     </main>
-    Dashboard
+   
     <script src="{{ asset('dashassests/js/phoenix.js') }}"></script>
     <script src="{{ asset('dashassests/js/ecommerce-dashboard.js') }}"></script>
+    <!-- Modal Structure -->
+<div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content" style="background-color: #F1EAD2;">
+        <div class="modal-header">
+          <h5 class="modal-title" id="categoryModalLabel">Add New Category</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Form for adding categories -->
+          <form id="addCategoryForm" method="POST" action="/categories">
+            @csrf
+            <div class="mb-3">
+              <label for="categoryName" class="form-label">Category Name</label>
+              <input type="text" class="form-control" id="categoryName" name="name" required>
+            </div>
+            <div class="mb-3">
+              <label for="categoryDescription" class="form-label">Description</label>
+              <textarea class="form-control" id="categoryDescription" name="description" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Save Category</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
   </body>
 
 </html>

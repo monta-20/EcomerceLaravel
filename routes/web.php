@@ -16,3 +16,6 @@ Route::get('/admin/dashboard',[App\Http\Controllers\AdminController::class, 'das
 
 //Route to page client/dashboard
 Route::get('/client/dashboard',[App\Http\Controllers\ClientController::class, 'dashboard']);
+
+//Route List Categories
+Route::get('/admin/categories',[App\Http\Controllers\CategoryController::class, 'index']);

@@ -83,3 +83,70 @@
      - Reamrk : for views image in dashboard must 
      ==> {{ asset('dashassests/....')}} //for access under public folder
       Example : <img src="{{ asset('dashassests/img/nav-icons/trello.png')}}" alt="" width="30">
+6 . Administration - Categories Page
+     - php artisan make:model Category -mc     ==>  will generate a model, migration, and controller for the Category.
+     - in database/migration/2024_10_17_143140_create_categories_table.php ==> add name and description :
+      /*
+             public function up(): void
+           {
+               Schema::create('categories', function (Blueprint $table) {
+                   $table->id();
+                   $table->string('name');
+                   $table->text('description');
+                   $table->timestamps();
+               });
+           }
+      /*
+      - php artisan migrate : create my DB on localy.
+          -Task : List of categories
+          -Path : "\admin\categories"
+          -Treatement : On CategoryController.php in function index.php 
+          -Result : Return Page : list.blade.php (Path of file : resources\views\admin\categories\index.blade.php)
+      - in file :app\Http\Controllers\CategoryController.php ==>
+            /*
+            class CategoryController extends Controller
+          {
+          public function index(){
+              return view("admin.categories.index");
+          }
+      }
+      */
+      - in file :routes\web.php
+        /* Route::get('/admin/categories',[App\Http\Controllers\CategoryController::class, 'index']); */
+      - in file index.blade.php ,i copy same code in from dashboard.blade.php and i add modal for add category 
+        and correct all href for navigate in page.
+        modal:
+        /*
+        <!-- Button to trigger modal -->
+               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#categoryModal">
+                        Add Category
+               </button>
+               
+               <!-- Modal Structure -->
+               <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel" aria-hidden="true">
+                 <div class="modal-dialog">
+                   <div class="modal-content" style="background-color: #F1EAD2;">
+                     <div class="modal-header">
+                       <h5 class="modal-title" id="categoryModalLabel">Add New Category</h5>
+                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     </div>
+                     <div class="modal-body">
+                       <!-- Form for adding categories -->
+                       <form id="addCategoryForm" method="POST" action="/categories">
+                         @csrf
+                         <div class="mb-3">
+                           <label for="categoryName" class="form-label">Category Name</label>
+                           <input type="text" class="form-control" id="categoryName" name="name" required>
+                         </div>
+                         <div class="mb-3">
+                           <label for="categoryDescription" class="form-label">Description</label>
+                           <textarea class="form-control" id="categoryDescription" name="description" rows="3" required></textarea>
+                         </div>
+                         <button type="submit" class="btn btn-primary w-100">Save Category</button>
+                       </form>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+        */  
+        
