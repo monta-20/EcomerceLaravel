@@ -22,6 +22,12 @@
       body {
         opacity: 0;
       }
+      
+        /* Custom styling for table background color */
+        .custom-table {
+            background-color: #F1EAD2;
+        }
+    
     </style>
   </head>
 
@@ -160,6 +166,35 @@
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#categoryModal">
                       Add Category
               </button>
+               {{-- lists categories in table  --}}
+               <div class="container mt-5">
+                <h2 class="mb-4">Categories</h2>
+                <table class="table table-bordered table-hover custom-table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      @foreach ($categories as $index=>$c )
+                        <tr>
+                            <td>{{ $index + 1}}</td>
+                            <td>{{ $c->name }}</td>
+                            <td>{{ $c->description }}</td>
+                            <td>
+                                <button class="btn btn-sm btn-primary">Edit</button>
+                                <button class="btn btn-sm btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                        @endforeach
+                        <!-- Add more rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+        
           </div>
          
           <footer class="footer">
@@ -184,21 +219,35 @@
       <div class="modal-content" style="background-color: #F1EAD2;">
         <div class="modal-header">
           <h5 class="modal-title" id="categoryModalLabel">Add New Category</h5>
+         
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <!-- Form for adding categories -->
-          <form id="addCategoryForm" method="POST" action="/categories">
+          <form id="addCategoryForm" method="POST" action="/admin/categories/store">
             @csrf
             <div class="mb-3">
               <label for="categoryName" class="form-label">Category Name</label>
-              <input type="text" class="form-control" id="categoryName" name="name" required>
+              <input type="text" class="form-control" id="categoryName" name="name" value = {{ @old('name') }}>
+              @error('name')
+                <div class="alert alert-danger">
+                  {{ $message }}
+                </div>
+              @enderror
             </div>
             <div class="mb-3">
               <label for="categoryDescription" class="form-label">Description</label>
-              <textarea class="form-control" id="categoryDescription" name="description" rows="3" required></textarea>
+              <textarea class="form-control" id="categoryDescription" name="description" rows="3" value = {{ @old('description') }}></textarea>
+              @error('name')
+                <div class="alert alert-danger">
+                  {{ $message }}
+                </div>
+              @enderror
             </div>
             <button type="submit" class="btn btn-primary w-100">Save Category</button>
+
+            
+            
           </form>
         </div>
       </div>

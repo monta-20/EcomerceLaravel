@@ -19,3 +19,6 @@ Route::get('/client/dashboard',[App\Http\Controllers\ClientController::class, 'd
 
 //Route List Categories
 Route::get('/admin/categories',[App\Http\Controllers\CategoryController::class, 'index']);
+
+//Route adding Categories
+Route::post('/admin/categories/store',[App\Http\Controllers\CategoryController::class, 'store']);
