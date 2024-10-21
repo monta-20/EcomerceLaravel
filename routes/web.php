@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use App\Http\Middleware\admin;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth; // Add this line
@@ -29,3 +30,14 @@ Route::get('/admin/category/delete/{id}',[App\Http\Controllers\CategoryControlle
 
 //Route updating Categories
 Route::post('/admin/categories/update',[App\Http\Controllers\CategoryController::class, 'update']);//->middleware(admin::class);
+
+//Route List Products
+Route::get('/admin/products', [ProductController::class, 'index']);
+//Route adding Products
+Route::post('/admin/product/store',[App\Http\Controllers\ProductController::class, 'store']);
+
+//Route delete Products
+Route::get('/admin/product/delete/{id}',[App\Http\Controllers\ProductController::class, 'destroy']);
+
+//Route updating Products
+Route::post('/admin/product/update',[App\Http\Controllers\ProductController::class, 'update']);
