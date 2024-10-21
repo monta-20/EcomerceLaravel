@@ -67,4 +67,29 @@
       ---- Example:  @section('content')
                        <p>This is the content of the page.</p>
                      @endsection
-           This section will fill in the @yield('content') from the parent template.     
+           This section will fill in the @yield('content') from the parent template.    
+10. Middlewares
+   -Filter request demand by client
+   - Default Middleware Auth 
+     -- i hope to access route '/admin/categories' if i connected , so i use default Middleware Auth(->middleware('auth'))
+        ====> Route::get('/admin/categories',[App\Http\Controllers\CategoryController::class, 'index'])->middleware('auth');
+     ==>So when i access to /admin/categories and not login is send me to login page
+   - But i can in page /client/dashboard and write in url : /admin/dashboard is send me to this page
+     ==>solution : create props middleware  : php artisan make:middleware admin
+  - Code in Middleware/admin.php :
+     /*
+                    public function handle(Request $request, Closure $next): Response
+                  {   
+                      //set condition for secure my application
+                     // Check if the authenticated user is an admin
+                     if (Auth::user()->role == 'admin') {
+                      return $next($request); // Continue to the next middleware/request
+                  } else {
+                      return Redirect('/login'); // If not admin, redirect to homepage
+                  }
+                      
+                  }
+    */
+   - in version Laravel11 is not file kernel.php so you can set in file bootstrap/app.php
+    Link to read : https://stackoverflow.com/questions/78340907/how-do-i-register-a-middleware-in-laravel-11
+   - you can view change in github and i am not upload code because error is happen 
