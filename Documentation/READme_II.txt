@@ -36,5 +36,15 @@
                 return view("admin.categories.index")->with('categories',$categories); /*/render to use in view
             }
          */   
-
+8. Administration - Edit & Delete Category
+            Delete
+     -Task: Delete Category
+     -Path: '/admin/category/delete/{id}'
+     -Treatement: CategoryController =>function destroy
+     -Result: redirection to list of category('/admin/categories')
+             Edit
+    -Task: Edit Category
+    -Path: '/admin/category/update'
+    -Treatement: CategoryController =>function update
+    -Result: redirection to list of category('/admin/categories')       
    

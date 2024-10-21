@@ -185,8 +185,10 @@
                             <td>{{ $c->name }}</td>
                             <td>{{ $c->description }}</td>
                             <td>
-                                <button class="btn btn-sm btn-primary">Edit</button>
-                                <button class="btn btn-sm btn-danger">Delete</button>
+                              <button type="button" class="btn btn-sm btn-primary"  data-bs-toggle="modal" data-bs-target="#modifyCategoryModal{{ $c->id }}">
+                                Edit
+                              </button>
+                                <a onclick="return confirm('Are you sure to delete ?')" href="/admin/category/delete/{{ $c->id }}"><button class="btn btn-sm btn-danger">Delete</button></a>
                             </td>
                         </tr>
                         @endforeach
@@ -211,8 +213,7 @@
       </div>
     </main>
    
-    <script src="{{ asset('dashassests/js/phoenix.js') }}"></script>
-    <script src="{{ asset('dashassests/js/ecommerce-dashboard.js') }}"></script>
+    
     <!-- Modal Structure -->
 <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -253,6 +254,57 @@
       </div>
     </div>
   </div>
+  <!-- Button to trigger the modal -->
+  @foreach ($categories as $index => $c)
+  <!-- Modal Updating -->
+  <div class="modal fade" id="modifyCategoryModal{{ $c->id }}" tabindex="-1" aria-labelledby="modifyCategoryModalLabel{{ $c->id }}" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="modifyCategoryModalLabel{{ $c->id }}">Modify Category</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <!-- Form to modify the category -->
+                  <form id="modifyCategoryForm{{ $c->id }}" method="POST" action="/admin/categories/update">
+                      @csrf
+                      <!-- Hidden input for category ID -->
+                      <input type="hidden" name="id_category" value="{{ $c->id }}">
+
+                      <!-- Category Name Input -->
+                      <div class="mb-3">
+                          <label for="categoryName{{ $c->id }}" class="form-label">Category Name</label>
+                          <input type="text" class="form-control" id="categoryName{{ $c->id }}" name="name" value="{{ $c->name }}">
+                          @error("name")
+                              <div class="alert alert-danger">
+                                  {{ $message }}
+                              </div>
+                          @enderror
+                      </div>
+
+                      <!-- Category Description Input -->
+                      <div class="mb-3">
+                          <label for="categoryDescription{{ $c->id }}" class="form-label">Category Description</label>
+                          <textarea class="form-control" id="categoryDescription{{ $c->id }}" name="description" rows="3">{{ $c->description }}</textarea>
+                          @error("description")
+                              <div class="alert alert-danger">
+                                  {{ $message }}
+                              </div>
+                          @enderror
+                      </div>
+                  </form>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary" form="modifyCategoryForm{{ $c->id }}">Save Changes</button>
+              </div>
+          </div>
+      </div>
+  </div>
+@endforeach
+
+    <script src="{{ asset('dashassests/js/phoenix.js') }}"></script>
+    <script src="{{ asset('dashassests/js/ecommerce-dashboard.js') }}"></script>
   </body>
 
 </html>

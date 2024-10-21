@@ -22,3 +22,9 @@ Route::get('/admin/categories',[App\Http\Controllers\CategoryController::class, 
 
 //Route adding Categories
 Route::post('/admin/categories/store',[App\Http\Controllers\CategoryController::class, 'store']);
+
+//Route delete Categories
+Route::get('/admin/category/delete/{id}',[App\Http\Controllers\CategoryController::class, 'destroy']);
+
+//Route updating Categories
+Route::post('/admin/categories/update',[App\Http\Controllers\CategoryController::class, 'update']);
