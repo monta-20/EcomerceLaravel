@@ -105,7 +105,7 @@
             </div>
             <div class="modal-body">
               <!-- Form for adding products -->
-              <form id="addProductForm" method="POST" action="/admin/product/store">
+              <form id="addProductForm" method="POST" action="/admin/product/store" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                   <label for="productName" class="form-label">Product Name</label>
