@@ -16,4 +16,6 @@
     - add new product in store function at ProductController
     - delete product in destroy function at ProductController
     - Problem when i delete in browser product iamge is not delete in my uploads files ==> solution unlink($file_path) function
-    
+14. Update Product 
+    - update product 
+    - check if image exist delete and update to new image in ProductController@update

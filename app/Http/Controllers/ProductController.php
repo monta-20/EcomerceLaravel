@@ -86,8 +86,47 @@ class ProductController extends Controller
      */
     public function update(Request $request, product $product)
     {
-        //
+        $id = $request->id_product;   
+        $product = product::find($id);  // Find the product by ID
+        //dd($product);  // Debugging line to inspect the product object
+    
+        // Assign the updated product details from the form input fields
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->quantity = $request->quantity;
+    
+        // Check if a new image file is uploaded
+        if ($request->file('photo')) {
+            // Get the current image file path and delete the old image from the server
+            $file_path = public_path() . '/uploads/' . $product->photo;
+            if (file_exists($file_path)) {  // Ensure file exists before deleting
+                unlink($file_path);
+            }
+    
+            // Generate a unique name for the new image
+            $newname = uniqid() . "." . $request->file('photo')->getClientOriginalExtension();
+    
+            // Define the destination path for the new image
+            $destinationPath = 'uploads';
+    
+            // Move the uploaded new image to the destination folder
+            $request->file('photo')->move($destinationPath, $newname);
+    
+            // Assign the new image filename to the 'photo' field of the product
+            $product->photo = $newname;
+        }
+    
+        // Save the updated product details to the database
+        if ($product->save()) {
+            // Redirect back to the previous page if the update is successful
+            return redirect()->back();
+        } else {
+            // Output an error message if the update fails
+            echo "error updating";
+        }
     }
+    
 
     /**
      * Remove the specified resource from storage.

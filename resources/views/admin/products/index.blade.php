@@ -172,6 +172,8 @@
                     <!-- Form to modify the product -->
                     <form id="modifyProductForm{{ $product->id }}" method="POST" action="/admin/product/update">
                         @csrf
+                        <img src="{{ asset('uploads') }}/{{ $product->photo }}" alt="{{ $product->name }}" style="width: 50px;">
+                        {{-- it's necessary to use id in controller --}}
                         <input type="hidden" name="id_product" value="{{ $product->id }}">
 
                         <div class="mb-3">
