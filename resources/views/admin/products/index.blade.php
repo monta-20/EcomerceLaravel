@@ -44,7 +44,7 @@
                       Add Product
               </button>
                {{-- lists products in table  --}}
-               <div class="container mt-5">
+               <div class="container mt-3">
                 <h2 class="mb-4">Products</h2>
                 <table class="table table-bordered table-hover custom-table">
                     <thead class="thead-light">
@@ -64,9 +64,9 @@
                             <td>{{ $index + 1}}</td>
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->description }}</td>
-                            <td>{{ $product->price }}</td>
+                            <td>{{ $product->price }} TND</td>
                             <td>{{ $product->quantity }}</td>
-                            <td><img src="{{ $product->photo }}" alt="{{ $product->name }}" style="width: 50px;"></td>
+                            <td><img src="{{ asset('uploads') }}/{{ $product->photo }}" alt="{{ $product->name }}" style="width: 50px;"></td>
                             <td>
                               <button type="button" class="btn btn-sm btn-primary"  data-bs-toggle="modal" data-bs-target="#modifyProductModal{{ $product->id }}">
                                 Edit
