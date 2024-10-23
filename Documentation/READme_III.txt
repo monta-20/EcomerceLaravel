@@ -32,4 +32,8 @@
     localhost:8000/ give this page not login or logout 
     - create new controller Guest : php artisan make:controller GuestController
     - get all product and categories and upload in page guest.blade.php
-    
+17. Integrate eshopper template
+    - Split home page in multiple pages in inc/guest/....
+    - call in home.blade.php by @include 
+    - create details page for product name : product-details.blade.php (Topbar,navbar,Content(is copy from detail.html in template),Footer)
+    - 

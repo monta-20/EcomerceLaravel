@@ -7,7 +7,12 @@ use App\Http\Middleware\admin;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth; // Add this line
 //return view pages
+
+//Guest Home
 Route::get('/', [App\Http\Controllers\GuestController::class, 'home']);
+
+//Guest page for details
+Route::get('/products/details', [App\Http\Controllers\GuestController::class, 'productDetails']);
 
 Auth::routes();
 

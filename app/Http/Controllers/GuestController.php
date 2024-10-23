@@ -13,4 +13,9 @@ class GuestController extends Controller
         $categories = Category::all(); //get all categories from DB.        
         return view('guest.home')->with('products',$products)->with('categories',$categories);
     }
+
+    public function productDetails(){
+        $categories = Category::all(); //get all categories from DB.        
+        return view('guest.product-details')->with('categories',$categories);
+    }
 }
