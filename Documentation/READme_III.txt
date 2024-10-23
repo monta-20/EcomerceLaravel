@@ -25,4 +25,11 @@
     ===> on migrations_categories :$table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
     - php artisan migrate:refresh ==> update DB and delete all
     - create new register : php artisan db:seed --class=AdminSeeder
-    - i add select in add catagory for select correspond category of product
+    - i add select in add category for select correspond category of product
+16. Integrate eshopper template
+    - integrate new template eshopper and this link : https://themewagon.com/themes/eshopper-free-responsive-bootstrap-4-e-commerce-website-template/
+    - create new page : guest.blade.php and copy index.html from template this page guest means when client or admin visit
+    localhost:8000/ give this page not login or logout 
+    - create new controller Guest : php artisan make:controller GuestController
+    - get all product and categories and upload in page guest.blade.php
+    
