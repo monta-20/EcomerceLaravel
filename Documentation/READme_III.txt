@@ -19,3 +19,10 @@
 14. Update Product 
     - update product 
     - check if image exist delete and update to new image in ProductController@update
+15. Models Relationship
+    - each product continued categories.
+    - i add new category_id (foreign key) in product table and continued with id (primary key) in categories table. 
+    ===> on migrations_categories :$table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+    - php artisan migrate:refresh ==> update DB and delete all
+    - create new register : php artisan db:seed --class=AdminSeeder
+    - i add select in add catagory for select correspond category of product

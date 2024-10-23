@@ -18,6 +18,11 @@ return new class extends Migration
             $table->float('price');
             $table->integer('quantity');
             $table->string('photo');
+            // Create a foreign key column 'category_id' that stores unsigned big integer values
+            $table->unsignedBigInteger('category_id');
+            // Set 'category_id' as a foreign key that references the 'id' field in the 'categories' table
+            // If a related record in 'categories' is deleted, this record will be deleted as well due to 'onDelete('cascade')'
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }

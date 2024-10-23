@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\product;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,8 @@ class ProductController extends Controller
     public function index()
     {
         $products = product::all();
-        return view('admin.products.index')->with('products',$products);
+        $categories = Category::all();
+        return view('admin.products.index')->with('products',$products)->with('categories',$categories);
     }
     /**
      * Store a newly created resource in storage.
@@ -25,7 +27,7 @@ class ProductController extends Controller
 
     // Assign the product name from the form input (from the request)
     $product->name = $request->name;
-
+    
     // Assign the product description from the form input
     $product->description = $request->description;
 
@@ -34,7 +36,9 @@ class ProductController extends Controller
 
     // Assign the product quantity from the form input
     $product->quantity = $request->quantity;
-
+     
+    // Assign the product category from the form input
+    $product->category_id = $request->category;
     // Get the uploaded file from the form (the 'photo' input field)
     $image = $request->file('photo');
 

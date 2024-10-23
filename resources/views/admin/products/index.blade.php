@@ -108,6 +108,19 @@
               <form id="addProductForm" method="POST" action="/admin/product/store" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
+                  <label for="productName" class="form-label">Category Product</label>
+                  <select name="category" class="form-control">
+                    @foreach ($categories as $c )
+                    <option value="{{ $c->id }}">{{ $c->name }}</option>
+                    @endforeach
+                  </select>
+                  @error('name')
+                    <div class="alert alert-danger">
+                      {{ $message }}
+                    </div>
+                  @enderror
+                </div>
+                <div class="mb-3">
                   <label for="productName" class="form-label">Product Name</label>
                   <input type="text" class="form-control" id="productName" name="name" value="{{ old('name') }}">
                   @error('name')
