@@ -51,3 +51,9 @@ Route::get('/admin/product/delete/{id}',[App\Http\Controllers\ProductController:
 
 //Route updating Products
 Route::post('/admin/product/update',[App\Http\Controllers\ProductController::class, 'update']);
+
+//Profile Admin
+Route::get('/admin/profile',[App\Http\Controllers\AdminController::class, 'profile']);
+
+//Profile update
+Route::post('/admin/profile/update',[App\Http\Controllers\AdminController::class, 'updateProfile']);

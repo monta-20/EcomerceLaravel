@@ -45,3 +45,8 @@
 20. Guest Product Search
     -  Search product in input (/)
     - Use dynamic search by LIKE in SQL   
+21. Admin Edit Profile
+    - in this section is update name , email of admin and password if hope to change (profile.blade.php)
+    - click in profile in edit profile 
+    - Auth::user() : all data of User
+    - create flash_message to store success and error message and used in multiple blade     
