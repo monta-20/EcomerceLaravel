@@ -42,3 +42,6 @@
     - i copy shop(template) in shop.blade.php and make change
 19. Guest List of products in category
     - complete the List of products in category 
+20. Guest Product Search
+    -  Search product in input (/)
+    - Use dynamic search by LIKE in SQL   

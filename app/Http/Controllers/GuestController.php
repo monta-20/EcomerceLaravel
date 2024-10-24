@@ -31,4 +31,18 @@ class GuestController extends Controller
         $categories = Category::all(); //get all categories from DB.        
         return view('guest.shop')->with('categories',$categories)->with('products',$products);
     }
+
+    public function search(Request $request){
+        //dd($request);
+        
+       // Retrieve all products where the name contains the specified keyword(s)
+       // The 'LIKE' SQL operator is used for a partial match, searching for products
+       // whose name includes the value provided in the request's 'keywords' field
+       $products = product::where('name', 'LIKE', '%' . $request->keywords . '%')->get();    //o search dynamically not static
+       // dd($products);
+       $categories =Category::all();
+
+       return view('guest.shop')->with('categories',$categories)->with('products',$products);
+
+    }
 }

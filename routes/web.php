@@ -17,6 +17,9 @@ Route::get('/products/details/{id}', [App\Http\Controllers\GuestController::clas
 //Guest shop page
 Route::get('/products/{category}/list', [App\Http\Controllers\GuestController::class, 'shop']);
 
+//Search product
+Route::post('/products/search', [App\Http\Controllers\GuestController::class, 'search']);
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
