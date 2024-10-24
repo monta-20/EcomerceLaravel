@@ -12,7 +12,10 @@ use Illuminate\Support\Facades\Auth; // Add this line
 Route::get('/', [App\Http\Controllers\GuestController::class, 'home']);
 
 //Guest page for details
-Route::get('/products/details', [App\Http\Controllers\GuestController::class, 'productDetails']);
+Route::get('/products/details/{id}', [App\Http\Controllers\GuestController::class, 'productDetails']);
+
+//Guest shop page
+Route::get('/products/{category}/list', [App\Http\Controllers\GuestController::class, 'shop']);
 
 Auth::routes();
 

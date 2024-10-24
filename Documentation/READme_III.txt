@@ -36,4 +36,8 @@
     - Split home page in multiple pages in inc/guest/....
     - call in home.blade.php by @include 
     - create details page for product name : product-details.blade.php (Topbar,navbar,Content(is copy from detail.html in template),Footer)
-    - 
+18. Guest Product Details Page
+    - Create Details page and add some change (view in commit)
+    - in home page(/) i hope when i click on category give my all product continued for this category
+    - i copy shop(template) in shop.blade.php and make change
+    

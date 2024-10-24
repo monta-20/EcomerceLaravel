@@ -10,7 +10,7 @@
                     <div class="nav-item dropdown">
                     </div>
                     @foreach ( $categories as $c )
-                    <a href="" class="nav-item nav-link">{{ $c->name }}</a>
+                    <a href="/products/{{ $c->id }}/list" class="nav-item nav-link">{{ $c->name }}</a>
                     @endforeach   
                 </div>
             </nav>
