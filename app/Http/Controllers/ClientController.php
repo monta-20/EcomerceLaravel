@@ -65,4 +65,15 @@ class ClientController extends Controller
                            ->first();
         return view('guest.cart')->with('categories',$categories)->with('command',$command);
     }
+    //checkout
+    public function checkout(Request $request){
+       // dd($request);
+
+       $command = Commande::find($request->command);
+        //dd($command);
+        $command->state = "pay";
+
+        $command->update();
+        return redirect('client/dashboard')->with('success','Command pay with success!');
+    }
 }

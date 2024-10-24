@@ -33,7 +33,7 @@
         @include('inc.client.nav')
         <div class="content">
           <div class="pb-5">
-            Client
+            @include('inc.flash_message')
           </div>
          
           <footer class="footer bg-light text-center py-4">

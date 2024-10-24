@@ -100,7 +100,9 @@
 27. Client Cart remove product and edit quantity
     - Update Quantity of product commands to avoid duplicate same product command
     - Remove command
-
+28.  Client Cart , Total , checkout
+    - Calculate total of commands
+    - Proced chekchout i not not use gateway example(paypal ,flousi,...) but i just valid command 
 
 
 

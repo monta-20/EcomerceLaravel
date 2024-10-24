@@ -25,4 +25,15 @@ class Commande extends Model
     {
         return $this->belongsTo(User::class, 'client_id', 'id');
     }
+
+    //Calculate Total price of commands
+    public function getTotal(){
+        $total = 0;
+        //list of line commands
+        foreach($this->lignecommandes as $lc){
+            $total  += $lc->product->price * $lc->quantity ; 
+        }
+        return $total;
+
+    }
 }
