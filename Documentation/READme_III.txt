@@ -103,6 +103,7 @@
 28.  Client Cart , Total , checkout
     - Calculate total of commands
     - Proced chekchout i not not use gateway example(paypal ,flousi,...) but i just valid command 
-
+29 . Client commandes
+    - print all commandes of user 
 
 

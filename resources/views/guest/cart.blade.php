@@ -52,11 +52,11 @@
 <!-- Cart Start -->
 <div class="container-fluid pt-5">
     <div class="row px-xl-5">
-       
+        <!-- Product Table -->
         <div class="col-lg-8 table-responsive mb-5">
             <table class="table table-bordered text-center mb-0">
                 @include('inc.flash_messageTwo')
-                <thead class="bg-secondary text-dark">
+                <thead class="bg-primary text-white">
                     <tr>
                         <th>Products</th>
                         <th>Price</th>
@@ -66,62 +66,83 @@
                     </tr>
                 </thead>
                 <tbody class="align-middle">
-                @foreach ($command->lignecommandes as $lc )
-                <tr>
-                    <td class="align-middle"><img src="{{ asset('uploads') }}/{{ $lc->product->photo }}" alt="" style="width: 50px;"> {{ $lc->product->name }}</td>
-                    <td class="align-middle">{{ $lc->product->price }} TND</td>
-                    <td class="align-middle">
-                        <div class="input-group quantity mx-auto" style="width: 100px;">
-                            
-                            <input type="text" class="form-control form-control-sm bg-secondary text-center" value="{{ $lc->quantity }}">
-                            
-                        </div>
-                    </td>
-                    <td class="align-middle">{{ $lc->product->price * $lc->quantity }} TND</td>
-                    <td class="align-middle"><a href="/client/lc/{{ $lc->id }}/destroy"><button class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button></a></td>
-                </tr>
-                @endforeach
-                    
+                    @foreach ($command->lignecommandes as $lc )
+                    <tr>
+                        <!-- Product Name and Image -->
+                        <td class="align-middle">
+                            <img src="{{ asset('uploads') }}/{{ $lc->product->photo }}" alt="" style="width: 50px;" class="img-thumbnail mr-2">
+                            <span>{{ $lc->product->name }}</span>
+                        </td>
+                        <!-- Product Price -->
+                        <td class="align-middle">{{ $lc->product->price }} TND</td>
+                        <!-- Product Quantity -->
+                        <td class="align-middle">
+                            <div class="input-group quantity mx-auto" style="width: 100px;">
+                                <input type="text" class="form-control form-control-sm text-center" value="{{ $lc->quantity }}" readonly>
+                            </div>
+                        </td>
+                        <!-- Total Price -->
+                        <td class="align-middle">{{ $lc->product->price * $lc->quantity }} TND</td>
+                        <!-- Remove Button -->
+                        <td class="align-middle">
+                            <a href="/client/lc/{{ $lc->id }}/destroy" class="btn btn-sm btn-danger">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    @endforeach
                 </tbody>
             </table>
+            <div class="text-right mt-3">
+                <a href="/client/commandes" class="btn btn-secondary">Display Completed Orders</a>
+            </div>
         </div>
+
+        <!-- Cart Summary & Checkout -->
         <div class="col-lg-4">
             <form action="/client/checkout" method="POST">
-                 @csrf
-                 <input type="hidden" name="command" value="{{ $command->id }}">
-                <div class="input-group">
-                    <input type="text" class="form-control p-4" placeholder="Coupon Code">
+                @csrf
+                <input type="hidden" name="command" value="{{ $command->id }}">
+                
+                <!-- Coupon Code Input -->
+                <div class="input-group mb-4">
+                    <input type="text" class="form-control p-4" placeholder="Coupon Code" aria-label="Coupon Code">
                     <div class="input-group-append">
                         <button class="btn btn-primary">Apply Coupon</button>
                     </div>
                 </div>
-            
-            <div class="card border-secondary mb-5">
-                <div class="card-header bg-secondary border-0">
-                    <h4 class="font-weight-semi-bold m-0">Cart Summary</h4>
-                </div>
-                <div class="card-body">
-                    <div class="d-flex justify-content-between mb-3 pt-1">
-                        <h6 class="font-weight-medium">Subtotal</h6>
-                        <h6 class="font-weight-medium">{{ $command->getTotal() }} TND</h6>
+
+                <!-- Cart Summary Card -->
+                <div class="card border-secondary mb-5">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="font-weight-semi-bold m-0">Cart Summary</h4>
                     </div>
-                    <div class="d-flex justify-content-between">
-                        <h6 class="font-weight-medium">Shipping</h6>
-                        <h6 class="font-weight-medium">10 TND</h6>
+                    <div class="card-body">
+                        <!-- Subtotal -->
+                        <div class="d-flex justify-content-between mb-3">
+                            <h6 class="font-weight-medium">Subtotal</h6>
+                            <h6 class="font-weight-medium">{{ $command->getTotal() }} TND</h6>
+                        </div>
+                        <!-- Shipping -->
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-medium">Shipping</h6>
+                            <h6 class="font-weight-medium">10 TND</h6>
+                        </div>
+                    </div>
+                    <!-- Total -->
+                    <div class="card-footer bg-transparent border-secondary">
+                        <div class="d-flex justify-content-between mt-2">
+                            <h5 class="font-weight-bold">Total</h5>
+                            <h5 class="font-weight-bold">{{ $command->getTotal() + 10 }} TND</h5>
+                        </div>
+                        <button type="submit" class="btn btn-block btn-primary my-3 py-3">Proceed to Checkout</button>
                     </div>
                 </div>
-                <div class="card-footer border-secondary bg-transparent">
-                    <div class="d-flex justify-content-between mt-2">
-                        <h5 class="font-weight-bold">Total</h5>
-                        <h5 class="font-weight-bold">{{ $command->getTotal()  + 10}} TND</h5>
-                    </div>
-                    <button  type= "submit" class="btn btn-block btn-primary my-3 py-3">Proceed To Checkout</button>
-                </div>
-            </div>
-        </form>
+            </form>
         </div>
     </div>
 </div>
+
 <!-- Cart End -->
 
 

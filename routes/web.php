@@ -79,3 +79,6 @@ Route::get('/client/lc/{idlc}/destroy', [App\Http\Controllers\CommandeController
 
 //Client checkout Command
 Route::post('/client/checkout', [App\Http\Controllers\ClientController::class, 'checkout'])->middleware('auth');
+
+//Client list of Command delivery by client
+Route::get('/client/commandes', [App\Http\Controllers\ClientController::class, 'mescommandes'])->middleware('auth');

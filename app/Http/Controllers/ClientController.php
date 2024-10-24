@@ -76,4 +76,8 @@ class ClientController extends Controller
         $command->update();
         return redirect('client/dashboard')->with('success','Command pay with success!');
     }
+    //List of commandes delivery by client 
+    public function mescommandes(){
+         return view('client.commandes');
+     }
 }
