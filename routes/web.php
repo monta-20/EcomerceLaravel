@@ -55,5 +55,11 @@ Route::post('/admin/product/update',[App\Http\Controllers\ProductController::cla
 //Profile Admin
 Route::get('/admin/profile',[App\Http\Controllers\AdminController::class, 'profile']);
 
-//Profile update
+//Profile admin update
 Route::post('/admin/profile/update',[App\Http\Controllers\AdminController::class, 'updateProfile']);
+
+//Profile client
+Route::get('/client/profile',[App\Http\Controllers\ClientController::class, 'profile']);
+
+//Profile admin update
+Route::post('/client/profile/update',[App\Http\Controllers\ClientController::class, 'updateProfile']);

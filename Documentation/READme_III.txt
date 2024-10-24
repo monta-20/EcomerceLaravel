@@ -50,3 +50,5 @@
     - click in profile in edit profile 
     - Auth::user() : all data of User
     - create flash_message to store success and error message and used in multiple blade     
+22. Client Edit Profile
+    - same principal in Admin Edit Profile 

@@ -35,8 +35,8 @@
     <main class="main" id="top">
       <div class="container-fluid px-0">
          {{-- include sidebar and navber code --}}
-        @include('inc.admin.sidebar')
-        @include('inc.admin.nav')
+        @include('inc.client.sidebar')
+        @include('inc.client.nav')
         <div class="content">
           <div class="pb-5">
             <div class="container form-container">
@@ -46,11 +46,11 @@
                             <div class="card-header text-center">
                                 @include('inc.flash_message')
                                 
-                                <h4>Admin Edit Profile</h4>
+                                <h4>Client Edit Profile</h4>
                             </div>
                             <div class="card-body">
                                 <!-- Form start -->
-                                <form action="/admin/profile/update" method="POST">
+                                <form action="/client/profile/update" method="POST">
                                     @csrf
                                     <!-- Continent Name Field -->
                                     <div class="mb-3">

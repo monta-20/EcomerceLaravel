@@ -16,7 +16,7 @@ class AdminController extends Controller
     public function profile(){
         return view('admin.profile');
     }
-    //update profile in DB
+    //update admin profile in DB
     public function updateProfile(Request $request){
         // dd($request);
     

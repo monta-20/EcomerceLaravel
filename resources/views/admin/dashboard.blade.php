@@ -33,21 +33,97 @@
         @include('inc.admin.nav')
         <div class="content">
           <div class="pb-5">
-            Dashb
-          </div>
-         
-          <footer class="footer">
-            <div class="row g-0 justify-content-between align-items-center h-100 mb-3">
-              <div class="col-12 col-sm-auto text-center">
-                <p class="mb-0 text-900">Thank you for creating with phoenix<span class="d-none d-sm-inline-block"></span><span class="mx-1">|</span><br class="d-sm-none">2024 &copy; <a href="https://themewagon.com">Themewagon</a></p>
+            <!-- Dashboard Header -->
+            <h1 class="mb-4">Dashboard</h1>
+          
+            <!-- User Welcome Section -->
+            <div class="alert alert-primary" role="alert">
+              Welcome back, {{ Auth::user()->name }}!
+            </div>
+          
+            <!-- Overview Section -->
+            <div class="row mb-4">
+              <!-- Total Orders Card -->
+              <div class="col-md-4">
+                <div class="card text-white bg-info mb-3">
+                  <div class="card-header">Total Orders</div>
+                  <div class="card-body">
+                    <h5 class="card-title">15</h5>
+                    <p class="card-text">You have placed 15 orders.</p>
+                  </div>
+                </div>
               </div>
-              <div class="col-12 col-sm-auto text-center">
-                <p class="mb-0 text-600">v1.1.0</p>
+          
+              <!-- Wishlist Items Card -->
+              <div class="col-md-4">
+                <div class="card text-white bg-warning mb-3">
+                  <div class="card-header">Wishlist Items</div>
+                  <div class="card-body">
+                    <h5 class="card-title">5</h5>
+                    <p class="card-text">You have 5 items in your wishlist.</p>
+                  </div>
+                </div>
+              </div>
+          
+              <!-- Recent Messages/Notifications -->
+              <div class="col-md-4">
+                <div class="card text-white bg-success mb-3">
+                  <div class="card-header">Notifications</div>
+                  <div class="card-body">
+                    <h5 class="card-title">2 New Notifications</h5>
+                    <p class="card-text">You have 2 new notifications.</p>
+                  </div>
+                </div>
               </div>
             </div>
-          </footer>
-        </div>
-      </div>
+          
+            <!-- Recent Orders Section -->
+            <h2 class="mb-3">Recent Orders</h2>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Order ID</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Total</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">#101</th>
+                  <td>2024-10-23</td>
+                  <td><span class="badge bg-success">Delivered</span></td>
+                  <td>120.00 TND</td>
+                  <td><a href="#" class="btn btn-info btn-sm">View</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">#102</th>
+                  <td>2024-10-21</td>
+                  <td><span class="badge bg-warning">Processing</span></td>
+                  <td>80.00 TND</td>
+                  <td><a href="#" class="btn btn-info btn-sm">View</a></td>
+                </tr>
+              </tbody>
+            </table>
+          
+           
+          
+         
+            <footer class="footer bg-light text-center py-4">
+              <div class="container">
+                <div class="row justify-content-between align-items-center">
+                  <div class="col-12 col-sm-auto mb-2 mb-sm-0">
+                    <p class="mb-0 text-900">Thank you for shopping with <strong class="text-primary">YourStore</strong>!<span class="d-none d-sm-inline-block"></span><span class="mx-1">|</span><br class="d-sm-none">2024 &copy; <a href="https://yourstore.com" class="text-primary">YourStore</a></p>
+                  </div>
+                  <div class="col-12 col-sm-auto">
+                    <p class="mb-0 text-600">Explore our collections | Version: <strong>v1.1.0</strong></p>
+                  </div>
+                </div>
+              </div>
+            </footer>
+            
+            
     </main>
     Dashboard
     <script src="{{ asset('dashassests/js/phoenix.js') }}"></script>
