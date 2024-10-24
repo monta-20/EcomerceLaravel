@@ -97,6 +97,10 @@
 
 26. Client card 
     - add page card for print the line of Commandes 
+27. Client Cart remove product and edit quantity
+    - Update Quantity of product commands to avoid duplicate same product command
+    - Remove command
+
 
 
 

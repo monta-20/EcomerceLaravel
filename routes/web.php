@@ -73,3 +73,7 @@ Route::post('/client/order/store', [App\Http\Controllers\CommandeController::cla
 
 //Client Cart Page Order Command
 Route::get('/client/cart', [App\Http\Controllers\ClientController::class, 'cart'])->middleware('auth');
+
+//Client Delete Command
+Route::get('/client/lc/{idlc}/destroy', [App\Http\Controllers\CommandeController::class, 'ligneCommandeDestroy'])->middleware('auth');
+

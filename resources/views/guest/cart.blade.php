@@ -52,8 +52,10 @@
 <!-- Cart Start -->
 <div class="container-fluid pt-5">
     <div class="row px-xl-5">
+       
         <div class="col-lg-8 table-responsive mb-5">
             <table class="table table-bordered text-center mb-0">
+                @include('inc.flash_messageTwo')
                 <thead class="bg-secondary text-dark">
                     <tr>
                         <th>Products</th>
@@ -76,7 +78,7 @@
                         </div>
                     </td>
                     <td class="align-middle">{{ $lc->product->price * $lc->quantity }} TND</td>
-                    <td class="align-middle"><button class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button></td>
+                    <td class="align-middle"><a href="/client/lc/{{ $lc->id }}/destroy"><button class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button></a></td>
                 </tr>
                 @endforeach
                     
