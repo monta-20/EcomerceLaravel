@@ -25,11 +25,10 @@ class GuestController extends Controller
 
     public function shop($id_category){
         $category =Category::find($id_category);
-        // Retrieve all products that belong to the specified category
-        // The products are fetched where the category_id matches the provided $id_category
-       $products = product::where('category_id', $id_category)->get();
-        dd($products);
+        //use model relationship (function products in categories model) in this case but it the same solution 
+        $products = $category->products;
+        //dd($products);
         $categories = Category::all(); //get all categories from DB.        
-        return view('guest.shop')->with('categories',$categories);
+        return view('guest.shop')->with('categories',$categories)->with('products',$products);
     }
 }

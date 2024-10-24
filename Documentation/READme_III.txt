@@ -40,4 +40,5 @@
     - Create Details page and add some change (view in commit)
     - in home page(/) i hope when i click on category give my all product continued for this category
     - i copy shop(template) in shop.blade.php and make change
-    
+19. Guest List of products in category
+    - complete the List of products in category 
