@@ -23,4 +23,14 @@ class product extends Model
        return $this->hasMany(Review::class, 'product_id', 'id');
    }
 
+   /**
+    * Get the user that owns the product
+    *
+    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+    */
+   public function ligneCommande()
+   {
+       return $this->belongsTo(ligneCommande::class, 'product_id', 'id');
+   }
+
 }

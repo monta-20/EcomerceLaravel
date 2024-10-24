@@ -58,4 +58,14 @@ class User extends Authenticatable
     public function reviews(){
         return $this->hasMany(Review::class,'user_id','id');
     }
+
+    /**
+     * Get all of the comments for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function commandes()
+    {
+        return $this->hasMany(Commande::class, 'client_id', 'local_key');
+    }
 }

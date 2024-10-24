@@ -60,3 +60,18 @@
     - valid migration : php artisan migrate
     - i valid middleware again
     - must understand better relationship in database OK.
+24.  Client Order && Order Line 
+    - when client send commands 
+    - first i connect client not admin  
+    - create new DB Commande : php artisan make:model Commande -mc
+    - create new DB Commande : php artisan make:model LigneCommande -mc
+    - Diagram Relationship : 
+ Users
+ └───< hasMany >───┐
+                   |
+                Commandes
+                   └───< hasMany >───┐
+                                     |
+                                LigneCommandes
+                                     └───< belongsTo >─── Products
+    - you can more explain in browser : explain relation for commandes ,lignecommandes,product and user table to send command
