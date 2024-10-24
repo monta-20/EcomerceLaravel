@@ -28,7 +28,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/admin/dashboard',[App\Http\Controllers\AdminController::class, 'dashboard'])->middleware(admin::class,'auth');
 
 //Route to page client/dashboard
-Route::get('/client/dashboard',[App\Http\Controllers\ClientController::class, 'dashboard']);
+Route::get('/client/dashboard',[App\Http\Controllers\ClientController::class, 'dashboard'])->middleware('auth');
 
 //Route List Categories
 Route::get('/admin/categories', [CategoryController::class, 'index'])->middleware(admin::class);
@@ -42,28 +42,31 @@ Route::get('/admin/category/delete/{id}',[App\Http\Controllers\CategoryControlle
 Route::post('/admin/categories/update',[App\Http\Controllers\CategoryController::class, 'update'])->middleware(admin::class,'auth');
 
 //Route List Products
-Route::get('/admin/products', [ProductController::class, 'index']);
+Route::get('/admin/products', [ProductController::class, 'index'])->middleware(admin::class,'auth');
 
 //Route adding Products
-Route::post('/admin/product/store',[App\Http\Controllers\ProductController::class, 'store']);
+Route::post('/admin/product/store',[App\Http\Controllers\ProductController::class, 'store'])->middleware(admin::class,'auth');
 
 //Route delete Products
-Route::get('/admin/product/delete/{id}',[App\Http\Controllers\ProductController::class, 'destroy']);
+Route::get('/admin/product/delete/{id}',[App\Http\Controllers\ProductController::class, 'destroy'])->middleware(admin::class,'auth');
 
 //Route updating Products
-Route::post('/admin/product/update',[App\Http\Controllers\ProductController::class, 'update']);
+Route::post('/admin/product/update',[App\Http\Controllers\ProductController::class, 'update'])->middleware(admin::class,'auth');
 
 //Profile Admin
-Route::get('/admin/profile',[App\Http\Controllers\AdminController::class, 'profile']);
+Route::get('/admin/profile',[App\Http\Controllers\AdminController::class, 'profile'])->middleware(admin::class,'auth');
 
 //Profile admin update
-Route::post('/admin/profile/update',[App\Http\Controllers\AdminController::class, 'updateProfile']);
+Route::post('/admin/profile/update',[App\Http\Controllers\AdminController::class, 'updateProfile'])->middleware(admin::class,'auth');
 
 //Profile client
-Route::get('/client/profile',[App\Http\Controllers\ClientController::class, 'profile']);
+Route::get('/client/profile',[App\Http\Controllers\ClientController::class, 'profile'])->middleware('auth');
 
 //Profile client update
-Route::post('/client/profile/update',[App\Http\Controllers\ClientController::class, 'updateProfile']);
+Route::post('/client/profile/update',[App\Http\Controllers\ClientController::class, 'updateProfile'])->middleware('auth');
 
 //client Review
-Route::post('/client/review/store', [App\Http\Controllers\ClientController::class, 'addReview']);
+Route::post('/client/review/store', [App\Http\Controllers\ClientController::class, 'addReview'])->middleware('auth');
+
+//Client Order Command
+Route::post('/client/order/store', [App\Http\Controllers\CommandeController::class, 'store'])->middleware('auth');

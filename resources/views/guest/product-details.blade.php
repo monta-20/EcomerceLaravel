@@ -84,23 +84,28 @@
                 <h3 class="font-weight-semi-bold mb-4">{{ $product->price }} TND</h3>
                 <p class="mb-4">{{ $product->description }}</p>
                
-               
+                <form action="/client/order/store" method="POST">
                 <div class="d-flex align-items-center mb-4 pt-2">
+                   
+                        @csrf
+                        <input type="hidden" value="{{ $product->id }}" name="product_id">
                     <div class="input-group quantity mr-3" style="width: 130px;">
                         <div class="input-group-btn">
-                            <button class="btn btn-primary btn-minus" >
+                            <button type="button" class="btn btn-primary btn-minus" >
                             <i class="fa fa-minus"></i>
                             </button>
                         </div>
-                        <input type="text" class="form-control bg-secondary text-center" value="1">
+                        <input type="text" class="form-control bg-secondary text-center" value="1" name="quantity">
                         <div class="input-group-btn">
-                            <button class="btn btn-primary btn-plus">
+                            <button type="button" class="btn btn-primary btn-plus">
                                 <i class="fa fa-plus"></i>
                             </button>
                         </div>
                     </div>
-                    <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i> Add To Cart</button>
+                    <button type="submit"class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i> Add To Cart</button>
+                
                 </div>
+              </form>
                 <div class="d-flex pt-2">
                     <p class="text-dark font-weight-medium mb-0 mr-2">Share on:</p>
                     <div class="d-inline-flex">

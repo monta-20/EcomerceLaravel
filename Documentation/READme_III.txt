@@ -60,7 +60,7 @@
     - valid migration : php artisan migrate
     - i valid middleware again
     - must understand better relationship in database OK.
-24.  Client Order && Order Line 
+24.  Client Order && Order Line (1)
     - when client send commands 
     - first i connect client not admin  
     - create new DB Commande : php artisan make:model Commande -mc
@@ -75,3 +75,27 @@
                                 LigneCommandes
                                      └───< belongsTo >─── Products
     - you can more explain in browser : explain relation for commandes ,lignecommandes,product and user table to send command
+    - php artisan migrate
+25. Client Order && Order Line (2)
+    -  in url : http://127.0.0.1:8000/products/details/{id} (page details) There is button "Add To Cart" when i click
+    on this button direct me to cart page
+    - create web (url) and store function in 
+    OBJECTIVE :
+    The objective of this code is to handle the process of placing an order (or adding products to an existing order) for an authenticated user in an e-commerce system. Specifically:
+
+     Check if the User has an Ongoing Order:
+     If a command (order) is already in progress for the current authenticated user (Auth::user()), a new line item (product and quantity) is added to that order.
+     Create a New Order:
+     If no order is in progress, a new order is created for the user, and a line item is added to the newly created order.
+     Example Scenario:
+     User Adds a Product to an Existing Order:
+     
+     A user has already started an order, and it's in progress. When they add a product (e.g., a smartwatch) to the order, the system adds this product as a line item to the existing order.
+     User Starts a New Order:
+     
+     If the user doesn't have any ongoing orders, the system creates a new order, associates it with the user, and then adds the selected product as a line item in that new order.
+
+
+
+
+
