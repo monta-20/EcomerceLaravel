@@ -33,7 +33,9 @@ class CommandeController extends Controller
             $LineCommand->save();
 
             // Redirect to the cart or display success message
-            echo 'Yes';
+            return redirect('client/cart')->with("success", "Product Command!");
+
+            
         } else {
             // If no command exists, create a new one for the client
             $command = new Commande();
@@ -51,10 +53,11 @@ class CommandeController extends Controller
                 $LineCommand->save();
 
                 // Redirect to the cart or display success message
-                echo 'Yes';
+               
+                return redirect('client/cart')->with("success", "Product Command!");
             } else {
                 // If the command couldn't be created, redirect back with an error message
-                return redirect()->back()->with("error", "Impossible to command product")->withInput();
+                return redirect('client/cart')->with("error", "Impossible to command product");
             }
         }
     }

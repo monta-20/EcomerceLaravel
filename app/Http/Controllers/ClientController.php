@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Commande;
 use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -52,5 +54,15 @@ class ClientController extends Controller
        $review->save();
        return redirect()->back();
 
+    }
+
+    //cart page
+    public function cart(){
+        $categories = Category::all();
+        // Verify if there is an existing command in progress for the current authenticated client
+        $command = Commande::where('client_id', Auth::user()->id)
+                           ->where('state', 'in progress')
+                           ->first();
+        return view('guest.cart')->with('categories',$categories)->with('command',$command);
     }
 }

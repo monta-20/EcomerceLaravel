@@ -30,7 +30,7 @@ class product extends Model
     */
    public function ligneCommande()
    {
-       return $this->belongsTo(ligneCommande::class, 'product_id', 'id');
+       return $this->hasMany(ligneCommande::class, 'product_id', 'id');
    }
 
 }

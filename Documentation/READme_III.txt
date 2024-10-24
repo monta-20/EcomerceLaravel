@@ -95,7 +95,8 @@
      
      If the user doesn't have any ongoing orders, the system creates a new order, associates it with the user, and then adds the selected product as a line item in that new order.
 
-
+26. Client card 
+    - add page card for print the line of Commandes 
 
 
 

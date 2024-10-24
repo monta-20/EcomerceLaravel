@@ -70,3 +70,6 @@ Route::post('/client/review/store', [App\Http\Controllers\ClientController::clas
 
 //Client Order Command
 Route::post('/client/order/store', [App\Http\Controllers\CommandeController::class, 'store'])->middleware('auth');
+
+//Client Cart Page Order Command
+Route::get('/client/cart', [App\Http\Controllers\ClientController::class, 'cart'])->middleware('auth');

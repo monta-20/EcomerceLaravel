@@ -23,6 +23,6 @@ class LigneCommande extends Model
      */
     public function product()
     {
-        return $this->hasOne(product::class, 'product_id', 'id');
+        return $this->belongsTo(product::class, 'product_id', 'id');
     }
 }
