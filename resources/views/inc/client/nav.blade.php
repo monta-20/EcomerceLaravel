@@ -87,8 +87,8 @@
                 </div>
                 <div class="mb-3 mx-3"><input class="form-control form-control-sm" id="statusUpdateInput" placeholder="Update your status"></div>
                 <ul class="nav d-flex flex-column mb-2 pb-1">
-                  <li class="nav-item"><a class="nav-link px-3" href="/admin/profile"><span class="me-2 text-900" data-feather="user"></span>Profile</a></li>
-                  <li class="nav-item"><a class="nav-link px-3" href="/admin/dashboard"><span class="me-2 text-900" data-feather="pie-chart"></span>Dashboard</a></li>
+                  <li class="nav-item"><a class="nav-link px-3" href="/client/profile"><span class="me-2 text-900" data-feather="user"></span>Profile</a></li>
+                  <li class="nav-item"><a class="nav-link px-3" href="/client/dashboard"><span class="me-2 text-900" data-feather="pie-chart"></span>Dashboard</a></li>
                   <li class="nav-item"><a class="nav-link px-3" href="#!"><span class="me-2 text-900" data-feather="lock"></span>Posts &amp; Activity</a></li>
                   <li class="nav-item"><a class="nav-link px-3" href="#!"><span class="me-2 text-900" data-feather="settings"></span>Settings &amp; Privacy</a></li>
                   <li class="nav-item"><a class="nav-link px-3" href="#!"><span class="me-2 text-900" data-feather="help-circle"></span>Help Center</a></li>

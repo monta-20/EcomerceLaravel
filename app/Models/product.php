@@ -12,4 +12,15 @@ class product extends Model
     return $this->belongsTo(Category::class, 'category_id', 'id');
    }
 
+   /**
+    * Get all of the comments for the product
+    *
+    * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    */
+    //Relationship between Review and Products
+   public function reviews()
+   {
+       return $this->hasMany(Review::class, 'product_id', 'id');
+   }
+
 }

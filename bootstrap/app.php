@@ -13,7 +13,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         //this is new middleware that i created it
 
-     //   $middleware->append(admin::class);
+     
     })
     
     ->withExceptions(function (Exceptions $exceptions) {

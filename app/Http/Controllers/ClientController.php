@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -38,5 +39,18 @@ class ClientController extends Controller
     
         // Redirect the user back to the admin profile page with a success message
         return redirect('/client/profile')->with('success','Client update with success');
+    }
+
+    //add review
+    public function addReview(Request $request){
+       // dd($request);
+       $review = new Review();
+       $review->rate = $request->rate;
+       $review->product_id = $request->product_id;
+       $review->content = $request->content;
+       $review->user_id = Auth::user()->id ;
+       $review->save();
+       return redirect()->back();
+
     }
 }

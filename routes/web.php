@@ -25,24 +25,25 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Route to page admin/dashboard
-Route::get('/admin/dashboard',[App\Http\Controllers\AdminController::class, 'dashboard']);//->middleware(admin::class);
+Route::get('/admin/dashboard',[App\Http\Controllers\AdminController::class, 'dashboard'])->middleware(admin::class,'auth');
 
 //Route to page client/dashboard
 Route::get('/client/dashboard',[App\Http\Controllers\ClientController::class, 'dashboard']);
 
 //Route List Categories
-Route::get('/admin/categories', [CategoryController::class, 'index']);//->middleware(admin::class);
+Route::get('/admin/categories', [CategoryController::class, 'index'])->middleware(admin::class);
 //Route adding Categories
-Route::post('/admin/categories/store',[App\Http\Controllers\CategoryController::class, 'store']);//->middleware(admin::class);
+Route::post('/admin/categories/store',[App\Http\Controllers\CategoryController::class, 'store'])->middleware(admin::class,'auth');
 
 //Route delete Categories
-Route::get('/admin/category/delete/{id}',[App\Http\Controllers\CategoryController::class, 'destroy']);//->middleware(admin::class);
+Route::get('/admin/category/delete/{id}',[App\Http\Controllers\CategoryController::class, 'destroy'])->middleware(admin::class,'auth');
 
 //Route updating Categories
-Route::post('/admin/categories/update',[App\Http\Controllers\CategoryController::class, 'update']);//->middleware(admin::class);
+Route::post('/admin/categories/update',[App\Http\Controllers\CategoryController::class, 'update'])->middleware(admin::class,'auth');
 
 //Route List Products
 Route::get('/admin/products', [ProductController::class, 'index']);
+
 //Route adding Products
 Route::post('/admin/product/store',[App\Http\Controllers\ProductController::class, 'store']);
 
@@ -61,5 +62,8 @@ Route::post('/admin/profile/update',[App\Http\Controllers\AdminController::class
 //Profile client
 Route::get('/client/profile',[App\Http\Controllers\ClientController::class, 'profile']);
 
-//Profile admin update
+//Profile client update
 Route::post('/client/profile/update',[App\Http\Controllers\ClientController::class, 'updateProfile']);
+
+//client Review
+Route::post('/client/review/store', [App\Http\Controllers\ClientController::class, 'addReview']);

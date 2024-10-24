@@ -1,5 +1,5 @@
 <?php
-/*
+
 namespace App\Http\Middleware;
 
 use Closure;
@@ -15,7 +15,7 @@ class admin
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      * @return \Symfony\Component\HttpFoundation\Response
-    
+    */
     
     public function handle(Request $request, Closure $next): Response
     {
@@ -25,6 +25,6 @@ class admin
         } else {
             return redirect('/'); // If not admin, redirect to homepage
         }
+        //dd('hello middleware');
     }
 }
-*/

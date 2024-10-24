@@ -52,3 +52,11 @@
     - create flash_message to store success and error message and used in multiple blade     
 22. Client Edit Profile
     - same principal in Admin Edit Profile 
+23. Client Add Product Review
+    - create new table review : php artisan make:migration create_reviews_table //two fields : rate , content
+    - create model : php artisan make:model Review
+    - Relationship User/Review (oneToMany) : each user can add at least one review
+    - Relationship Review/Products (oneToMany) : each review can add at least one review
+    - valid migration : php artisan migrate
+    - i valid middleware again
+    - must understand better relationship in database OK.
