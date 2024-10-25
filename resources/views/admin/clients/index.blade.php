@@ -67,7 +67,11 @@
                                         @endif
                                     </td>
                                     <td>
+                                        @if ($client->isactive)
                                         <a href="/admin/user/{{ $client->id }}/blocked" class="btn btn-danger">Block User</a>
+                                        @else
+                                        <a href="/admin/user/{{ $client->id }}/active" class="btn btn-success">Active User</a>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

@@ -55,5 +55,14 @@ class AdminController extends Controller
 
         return redirect()->back()->with('success','Client is blocked');
     }
+
+    //active client
+    public function ActiveClient($idclient){
+        $clients = User::find($idclient);
+        $clients->isactive = true ;
+        $clients->update();
+
+        return redirect()->back()->with('success','Client is active');
+    }
     
 }

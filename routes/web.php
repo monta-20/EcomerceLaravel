@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\GuestController;
 use App\Http\Middleware\admin;
+use App\Http\Middleware\Isactive;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth; // Add this line
 //return view pages
@@ -28,7 +29,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/admin/dashboard',[App\Http\Controllers\AdminController::class, 'dashboard'])->middleware(admin::class,'auth');
 
 //Route to page client/dashboard
-Route::get('/client/dashboard',[App\Http\Controllers\ClientController::class, 'dashboard'])->middleware('auth');
+Route::get('/client/dashboard',[App\Http\Controllers\ClientController::class, 'dashboard'])->middleware(Isactive::class,'auth');
 
 //Route List Categories
 Route::get('/admin/categories', [CategoryController::class, 'index'])->middleware(admin::class);
@@ -64,6 +65,10 @@ Route::get('/admin/clients',[App\Http\Controllers\AdminController::class, 'clien
 
 //Admin Blocked clients
 Route::get('/admin/user/{id}/blocked',[App\Http\Controllers\AdminController::class, 'BlockedClient'])->middleware(admin::class,'auth');
+
+//Admin active clients
+Route::get('/admin/user/{id}/active',[App\Http\Controllers\AdminController::class, 'ActiveClient'])->middleware(admin::class,'auth');
+
 //Profile client
 Route::get('/client/profile',[App\Http\Controllers\ClientController::class, 'profile'])->middleware('auth');
 
@@ -74,7 +79,7 @@ Route::post('/client/profile/update',[App\Http\Controllers\ClientController::cla
 Route::post('/client/review/store', [App\Http\Controllers\ClientController::class, 'addReview'])->middleware('auth');
 
 //Client Order Command
-Route::post('/client/order/store', [App\Http\Controllers\CommandeController::class, 'store'])->middleware('auth');
+Route::post('/client/order/store', [App\Http\Controllers\CommandeController::class, 'store'])->middleware('auth')->middleware(Isactive::class,'auth');
 
 //Client Cart Page Order Command
 Route::get('/client/cart', [App\Http\Controllers\ClientController::class, 'cart'])->middleware('auth');
@@ -87,3 +92,6 @@ Route::post('/client/checkout', [App\Http\Controllers\ClientController::class, '
 
 //Client list of Command delivery by client
 Route::get('/client/commandes', [App\Http\Controllers\ClientController::class, 'mescommandes'])->middleware('auth');
+
+//View when client is blocked
+Route::get('/client/blocked', [App\Http\Controllers\ClientController::class, 'printMsg'])->middleware('auth');

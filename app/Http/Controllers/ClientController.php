@@ -80,4 +80,8 @@ class ClientController extends Controller
     public function mescommandes(){
          return view('client.commandes');
      }
+
+     public function printMsg(){
+        return view('client.blocked');
+     }
 }

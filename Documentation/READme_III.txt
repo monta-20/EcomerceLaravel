@@ -105,13 +105,17 @@
     - Proceed checkout i not not use gateway example(paypal ,flousi,...) but i just valid command 
 29 . Client commandes
     - print all commands of user 
-30. Admin : Block User
+30. Admin : Block User(1)
     - Give List of Client account and print
     - Block User 
        - i add field in DB (isactive) in table users for controller user blocked or not.
        - php artisan make:migration add_is_active --table=users //add field in table users => add field in database without loss all data
           -- this file add field : database\migrations\2024_10_25_111802_add_is_active.php
        - php artisan migrate
-
+30. Admin : Block User(2)
+       - i can active or blocked client
+       - verify client is not do anything after blocked =>middleware
+       - php artisan make:middleware Isactive
+       - create blocked.blade.php for print message blocked client
 
 
