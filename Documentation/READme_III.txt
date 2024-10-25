@@ -121,3 +121,5 @@
        - Print all commands in admin
 32. Admin search filtre(1)
        - search product in admin just by name of product
+33.Admin search filtre(2)
+       - search product in admin by quantity of product

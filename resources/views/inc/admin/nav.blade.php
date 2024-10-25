@@ -1,14 +1,14 @@
-<nav class="navbar navbar-light navbar-top navbar-expand">
+<nav class="navbar navbar-light navbar-top navbar-expand" style="background-color: #2C3E50;">
     <div class="navbar-logo"><button class="btn navbar-toggler navbar-toggler-humburger-icon" type="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalCollapse" aria-controls="navbarVerticalCollapse" aria-expanded="false" aria-label="Toggle Navigation"><span class="navbar-toggle-icon"><span class="toggle-line"></span></span></button> <a class="navbar-brand me-1 me-sm-3" href="index.html">
         <div class="d-flex align-items-center">
-          <div class="d-flex align-items-center"><img src="{{ asset('dashassests/img/icons/logo.png') }}" alt="phoenix" width="32">
-            <a href="/admin/dashboard"><p class="logo-text ms-2 d-none d-sm-block">Ecommerce</p></a>
+          <div class="d-flex align-items-center">
+            <h1 style="color:#ECF0F1"> SHOP4BUY</h1>
           </div>
         </div>
       </a></div>
     <div class="collapse navbar-collapse">
       <div class="search-box d-none d-lg-block" style="width:25rem;">
-        <form class="position-relative" data-bs-toggle="search" data-bs-display="static"><input class="form-control form-control-sm search-input search min-h-auto" type="search" placeholder="Search..." aria-label="Search"> <span class="fas fa-search search-box-icon"></span></form>
+        <form class="position-relative" data-bs-toggle="search" data-bs-display="static"><input class="form-control form-control-sm search-input search min-h-auto" type="search" placeholder="Search..." aria-label="Search" style="color: #ECF0F1; background-color: #2C3E50;> <span class="fas fa-search search-box-icon"></span></form>
       </div>
       <ul class="navbar-nav navbar-nav-icons ms-auto flex-row">
         <li class="nav-item dropdown"><a class="nav-link" id="navbarDropdownNotification" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="text-700" data-feather="bell" style="height:20px;width:20px;"></span></a></li>

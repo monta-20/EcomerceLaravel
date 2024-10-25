@@ -55,7 +55,7 @@
                 Add Product
               </button>
               
-              <div style="background-color: #F1EAD2; padding: 10px; border-radius: 8px; max-width: 400px; flex: 1;">
+              <div style="background-color: #F1EAD2;  border-radius: 8px; flex: 1;">
                 <form action="/admin/product/search/" method="POST" style="display: flex; align-items: center;">
                   @csrf
                   <input 
@@ -63,6 +63,13 @@
                     name="product_name" 
                     placeholder="Search" 
                     style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-right: 10px; font-size: 16px;"
+                  >
+                  <input 
+                    type="number" 
+                    name="quantity" 
+                    min="1"
+                    placeholder="Quantity"
+                    style="flex: 0.5; padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-right: 10px; font-size: 16px;"
                   >
                   <button 
                     type="submit" 
@@ -72,6 +79,7 @@
                   </button>
                 </form>
               </div>
+              
             </div>
           
             
@@ -112,17 +120,8 @@
             </div>
         
           
+         @include('inc.admin.footer')
          
-          <footer class="footer">
-            <div class="row g-0 justify-content-between align-items-center h-100 mb-3">
-              <div class="col-12 col-sm-auto text-center">
-                <p class="mb-0 text-900">Thank you for creating with Phoenix<span class="d-none d-sm-inline-block"></span><span class="mx-1">|</span><br class="d-sm-none">2024 &copy; <a href="https://themewagon.com">Themewagon</a></p>
-              </div>
-              <div class="col-12 col-sm-auto text-center">
-                <p class="mb-0 text-600">v1.1.0</p>
-              </div>
-            </div>
-          </footer>
         </div>
       </div>
     </main>

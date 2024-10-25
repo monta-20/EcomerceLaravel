@@ -161,7 +161,29 @@ class ProductController extends Controller
 
     public function SearchProduct(Request $request){
                //dd($request);
-               $products = product::where('name','LIKE', '%'. $request->product_name .'%')->get();
+               //if name rempli and quantity empty
+               if($request->product_name && !$request->quantity){
+                      // dd('qte empty');
+                      $products = product::where('name','LIKE', '%'. $request->product_name .'%')->get();
+               }
+               // if name empty and quantity fill
+               if(!$request->product_name && $request->quantity){
+                       // dd('name empty');
+                      $products = product::where('quantity','>=', $request->quantity )->get();
+               }
+               //two are fill
+               if($request->product_name && $request->quantity){
+                       // dd('two fill');
+                       $products = product::where('name','LIKE', $request->product_name )
+                       ->where('quantity','>=',  $request->quantity)
+                       ->get();
+               } 
+               //two are empty
+               if(!$request->product_name && !$request->quantity){
+                        //dd('two empty');
+                        $products = product::all();
+                } 
+               
                $categories = Category::all();
                return view('admin.products.index')->with('products',$products)->with('categories',$categories);
     }

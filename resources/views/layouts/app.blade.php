@@ -25,7 +25,7 @@
         <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #365194;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    EcommercE App
+                    SHOP4BUY
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
