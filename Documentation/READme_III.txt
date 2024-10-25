@@ -117,5 +117,6 @@
        - verify client is not do anything after blocked =>middleware
        - php artisan make:middleware Isactive
        - create blocked.blade.php for print message blocked client
-
+31. Admin orders 
+       - Print all commands in admin
 

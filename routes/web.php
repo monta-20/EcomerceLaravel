@@ -95,3 +95,6 @@ Route::get('/client/commandes', [App\Http\Controllers\ClientController::class, '
 
 //View when client is blocked
 Route::get('/client/blocked', [App\Http\Controllers\ClientController::class, 'printMsg'])->middleware('auth');
+
+//Get all command
+Route::get('/admin/commands', [App\Http\Controllers\AdminController::class, 'commands'])->middleware(admin::class,'auth');

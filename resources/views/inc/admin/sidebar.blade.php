@@ -6,11 +6,16 @@
             <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="cast"></span></span><span class="nav-link-text">Categories</span></div>
           </a></li>
           <li class="nav-item"><a class="nav-link active" href="/admin/products/">
-            <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="cast"></span></span><span class="nav-link-text">Products</span></div>
+            <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="layout"></span></span><span class="nav-link-text">Products</span></div>
           </a>
           <li class="nav-item"><a class="nav-link active" href="/admin/clients/">
-            <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="cast"></span></span><span class="nav-link-text">Clients</span></div>
-          </a></li>
+            <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="users"></span></span><span class="nav-link-text">Clients</span></div>
+          </a>
+        </li>
+        <li class="nav-item"><a class="nav-link active" href="/admin/commands/">
+          <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="command"></span></span><span class="nav-link-text">Commands</span></div>
+        </a>
+      </li>
       </ul>
     </div>
     <div class="navbar-vertical-footer"><a class="btn btn-link border-0 fw-semi-bold d-flex ps-0" href="#!"><span class="navbar-vertical-footer-icon" data-feather="log-out"></span><span>Settings</span></a></div>

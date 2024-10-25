@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Commande;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -64,5 +65,9 @@ class AdminController extends Controller
 
         return redirect()->back()->with('success','Client is active');
     }
-    
+    //Get all commands
+    public function commands(){
+        $commands = Commande::all();
+        return view('admin.commands.index')->with('commands',$commands);
+    }
 }
