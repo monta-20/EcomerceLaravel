@@ -119,4 +119,5 @@
        - create blocked.blade.php for print message blocked client
 31. Admin orders 
        - Print all commands in admin
-
+32. Admin search filtre(1)
+       - search product in admin just by name of product

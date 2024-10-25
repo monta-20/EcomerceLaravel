@@ -157,4 +157,13 @@ class ProductController extends Controller
     }
 }
 
+    //Search product
+
+    public function SearchProduct(Request $request){
+               //dd($request);
+               $products = product::where('name','LIKE', '%'. $request->product_name .'%')->get();
+               $categories = Category::all();
+               return view('admin.products.index')->with('products',$products)->with('categories',$categories);
+    }
+
 }

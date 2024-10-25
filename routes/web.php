@@ -98,3 +98,6 @@ Route::get('/client/blocked', [App\Http\Controllers\ClientController::class, 'pr
 
 //Get all command
 Route::get('/admin/commands', [App\Http\Controllers\AdminController::class, 'commands'])->middleware(admin::class,'auth');
+
+//Search product on admin
+Route::post('/admin/product/search', [App\Http\Controllers\ProductController::class, 'SearchProduct'])->middleware(admin::class,'auth');

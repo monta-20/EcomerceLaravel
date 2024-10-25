@@ -40,12 +40,44 @@
         <div class="content">
           <div class="pb-5">
            <!-- Button to trigger modal -->
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal">
-                      Add Product
+           <div class="container mt-3">
+           
+            
+            <!-- Inline Add Product Button and Search Form -->
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+              <button 
+                type="button" 
+                class="btn btn-primary" 
+                data-bs-toggle="modal" 
+                data-bs-target="#productModal" 
+                style="margin-right: 10px;"
+              >
+                Add Product
               </button>
-               {{-- lists products in table  --}}
-               <div class="container mt-3">
-                <h2 class="mb-4">Products</h2>
+              
+              <div style="background-color: #F1EAD2; padding: 10px; border-radius: 8px; max-width: 400px; flex: 1;">
+                <form action="/admin/product/search/" method="POST" style="display: flex; align-items: center;">
+                  @csrf
+                  <input 
+                    type="text" 
+                    name="product_name" 
+                    placeholder="Search" 
+                    style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-right: 10px; font-size: 16px;"
+                  >
+                  <button 
+                    type="submit" 
+                    style="background-color: #4CAF50; color: white; padding: 8px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; font-weight: bold;"
+                  >
+                    Search
+                  </button>
+                </form>
+              </div>
+            </div>
+          
+            
+          </div>
+          
+                
                 <table class="table table-bordered table-hover custom-table">
                     <thead class="thead-light">
                         <tr>
@@ -79,7 +111,7 @@
                 </table>
             </div>
         
-          </div>
+          
          
           <footer class="footer">
             <div class="row g-0 justify-content-between align-items-center h-100 mb-3">
@@ -181,6 +213,7 @@
                     <h5 class="modal-title" id="modifyProductModalLabel{{ $product->id }}">Modify Product</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                
                 <div class="modal-body">
                     <!-- Form to modify the product -->
                     <form id="modifyProductForm{{ $product->id }}" method="POST" action="/admin/product/update">
