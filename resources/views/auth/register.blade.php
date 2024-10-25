@@ -5,11 +5,11 @@
     <div class="row justify-content-center align-items-center min-vh-100">
         <div class="col-md-6">
             <div class="card shadow-sm border-0 rounded">
-                <div class="card-header" style="background-color: #F1EAD2; color: #365194;">
+                <div class="card-header" style="background-color: #2C3E50; color: #ECF0F1;">
                     <h3 class="text-center py-4">{{ __('Register') }}</h3>
                 </div>
 
-                <div class="card-body p-4">
+                <div class="card-body p-4" style="background-color: #ECF0F1; color: #2C3E50;">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
@@ -56,13 +56,13 @@
                         </div>
 
                         <div class="d-grid gap-2 mb-3">
-                            <button type="submit" class="btn btn-primary btn-block">
+                            <button type="submit" class="btn" style="background-color: #2C3E50; color: #ECF0F1;">
                                 {{ __('Register') }}
                             </button>
                         </div>
 
                         <div class="text-center">
-                            <a class="text-decoration-none" href="{{ route('login') }}">
+                            <a class="text-decoration-none" href="{{ route('login') }}" style="color: #2C3E50;">
                                 {{ __('Already have an account? Login here.') }}
                             </a>
                         </div>

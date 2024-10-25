@@ -41,31 +41,46 @@
     <div class="container-fluid pt-5">
         <div class="row px-xl-5 pb-3">
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
-                    <h1 class="fa fa-check text-primary m-0 mr-3"></h1>
+                <div class="feature-card d-flex align-items-center border mb-4" style="padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); transition: transform 0.3s;">
+                    <h1 class="fa fa-check text-primary m-0 mr-3" style="font-size: 36px;"></h1>
                     <h5 class="font-weight-semi-bold m-0">Quality Product</h5>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
-                    <h1 class="fa fa-shipping-fast text-primary m-0 mr-2"></h1>
+                <div class="feature-card d-flex align-items-center border mb-4" style="padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); transition: transform 0.3s;">
+                    <h1 class="fa fa-shipping-fast text-primary m-0 mr-2" style="font-size: 36px;"></h1>
                     <h5 class="font-weight-semi-bold m-0">Free Shipping</h5>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
-                    <h1 class="fas fa-exchange-alt text-primary m-0 mr-3"></h1>
+                <div class="feature-card d-flex align-items-center border mb-4" style="padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); transition: transform 0.3s;">
+                    <h1 class="fas fa-exchange-alt text-primary m-0 mr-3" style="font-size: 36px;"></h1>
                     <h5 class="font-weight-semi-bold m-0">14-Day Return</h5>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
-                    <h1 class="fa fa-phone-volume text-primary m-0 mr-3"></h1>
+                <div class="feature-card d-flex align-items-center border mb-4" style="padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); transition: transform 0.3s;">
+                    <h1 class="fa fa-phone-volume text-primary m-0 mr-3" style="font-size: 36px;"></h1>
                     <h5 class="font-weight-semi-bold m-0">24/7 Support</h5>
                 </div>
             </div>
         </div>
     </div>
+    
+    <style>
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+    
+        .text-primary {
+            color: #007bff; /* Customize your primary color here */
+        }
+    
+        .font-weight-semi-bold {
+            font-weight: 600; /* Adjust the font weight for better visibility */
+        }
+    </style>
+    
     <!-- Featured End -->
 
 
@@ -81,32 +96,56 @@
 
     <!-- Products Start -->
     <div class="container-fluid pt-5">
+        <style>
+            .product-item {
+                transition: transform 0.3s ease;
+            }
+    
+            .product-item:hover {
+                transform: translateY(-5px);
+            }
+    
+            .card-header img {
+                transition: transform 0.3s ease;
+            }
+    
+            .card-header img:hover {
+                transform: scale(1.05);
+            }
+        </style>
+    
         <div class="text-center mb-4">
-            <h2 class="section-title px-5"><span class="px-2">Trandy Products</span></h2>
+            <h2 class="section-title px-5">
+                <span class="px-2">Trendy Products</span>
+            </h2>
         </div>
         <div class="row px-xl-5 pb-3">
             @foreach ($products as $p)
-            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                <div class="card product-item border-0 mb-4">
-                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                        <img class="img-fluid w-100" src="{{ asset('uploads') }}/{{ $p->photo }}" alt="">
-                    </div>
-                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                        <h6 class="text-truncate mb-3">{{ $p->name }}</h6>
-                        <div class="d-flex justify-content-center">
-                            <h6>{{ $p->price }} TND</h6><h6 class="text-muted ml-2"></h6>
+                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                    <div class="card product-item border-0 mb-4 shadow-sm">
+                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                            <img class="img-fluid w-100" src="{{ asset('uploads') }}/{{ $p->photo }}" alt="{{ $p->name }}">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                            <h6 class="text-truncate mb-3 font-weight-bold">{{ $p->name }}</h6>
+                            <div class="d-flex justify-content-center align-items-center">
+                                <h6 class="mb-0">{{ $p->price }} TND</h6>
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center bg-light border-top">
+                            <a href="/products/details/{{ $p->id }}" class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-eye mr-1"></i>View Detail
+                            </a>
+                            <a href="" class="btn btn-sm btn-outline-success">
+                                <i class="fas fa-shopping-cart mr-1"></i>Add To Cart
+                            </a>
                         </div>
                     </div>
-                    <div class="card-footer d-flex justify-content-between bg-light border">
-                        <a href="/products/details/{{ $p->id }}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
-                    </div>
                 </div>
-            </div>
             @endforeach
-            
         </div>
     </div>
+    
     <!-- Products End -->
 
 

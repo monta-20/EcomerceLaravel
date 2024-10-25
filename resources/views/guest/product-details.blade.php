@@ -70,42 +70,34 @@
             </div>
 
             <div class="col-lg-7 pb-5">
-                <h3 class="font-weight-semi-bold">{{ $product->name }}</h3>
-                <div class="d-flex mb-3">
-                    <div class="text-primary mr-2">
-                        <small class="fas fa-star"></small>
-                        <small class="fas fa-star"></small>
-                        <small class="fas fa-star"></small>
-                        <small class="fas fa-star-half-alt"></small>
-                        <small class="far fa-star"></small>
-                    </div>
-                    <small class="pt-1">(50 Reviews)</small>
-                </div>
-                <h3 class="font-weight-semi-bold mb-4">{{ $product->price }} TND</h3>
-                <p class="mb-4">{{ $product->description }}</p>
-               
+                <h3 class="font-weight-semi-bold text-primary">{{ $product->name }}</h3>
+                <h4 class="font-weight-bold mb-4">{{ $product->price }} TND</h4>
+                <p class="mb-4 text-muted">{{ $product->description }}</p>
+            
                 <form action="/client/order/store" method="POST">
-                <div class="d-flex align-items-center mb-4 pt-2">
-                   
-                        @csrf
-                        <input type="hidden" value="{{ $product->id }}" name="product_id">
-                    <div class="input-group quantity mr-3" style="width: 130px;">
-                        <div class="input-group-btn">
-                            <button type="button" class="btn btn-primary btn-minus" >
-                            <i class="fa fa-minus"></i>
-                            </button>
+                    @csrf
+                    <input type="hidden" value="{{ $product->id }}" name="product_id">
+            
+                    <div class="d-flex align-items-center mb-4 pt-2">
+                        <div class="input-group quantity mr-3" style="width: 150px;">
+                            <div class="input-group-prepend">
+                                <button type="button" class="btn btn-outline-primary btn-minus">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                            </div>
+                            <input type="number" class="form-control bg-light text-center" value="1" name="quantity" min="1">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-outline-primary btn-plus">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </div>
                         </div>
-                        <input type="text" class="form-control bg-secondary text-center" value="1" name="quantity">
-                        <div class="input-group-btn">
-                            <button type="button" class="btn btn-primary btn-plus">
-                                <i class="fa fa-plus"></i>
-                            </button>
-                        </div>
+                        <button type="submit" class="btn btn-primary px-4">
+                            <i class="fa fa-shopping-cart mr-1"></i> Add To Cart
+                        </button>
                     </div>
-                    <button type="submit"class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i> Add To Cart</button>
-                
-                </div>
-              </form>
+                </form>
+            
                 <div class="d-flex pt-2">
                     <p class="text-dark font-weight-medium mb-0 mr-2">Share on:</p>
                     <div class="d-inline-flex">
@@ -124,12 +116,40 @@
                     </div>
                 </div>
             </div>
+            
+            <style>
+                .text-primary {
+                    color: #007bff; /* Customize primary color */
+                }
+            
+                .text-muted {
+                    color: #6c757d; /* Light color for description */
+                }
+            
+                .btn-outline-primary {
+                    border-color: #007bff; /* Customize button outline color */
+                    color: #007bff; /* Customize button text color */
+                }
+            
+                .btn-outline-primary:hover {
+                    background-color: #007bff; /* Background color on hover */
+                    color: white; /* Text color on hover */
+                }
+            
+                .input-group .form-control {
+                    border-radius: 0; /* Remove border radius for a sleek look */
+                }
+            
+                .input-group .btn {
+                    border-radius: 0; /* Uniform button shape */
+                }
+            </style>
+            
         </div>
         <div class="row px-xl-5">
             <div class="col">
                 <div class="nav nav-tabs justify-content-center border-secondary mb-4">
                     <a class="nav-item nav-link active" data-toggle="tab" href="#tab-pane-1">Description</a>
-                    <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-2">Information</a>
                     <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-3">Reviews {{ count($product->reviews) }}</a>
                 </div>
                 <div class="tab-content">
@@ -137,86 +157,86 @@
                         <h4 class="mb-3">Product Description</h4>
                         <p>{{ $product->description }}</p>
                     </div>
-                    <div class="tab-pane fade" id="tab-pane-2">
-                        <h4 class="mb-3">Additional Information</h4>
-                        <p>Eos no lorem eirmod diam diam, eos elitr et gubergren diam sea. Consetetur vero aliquyam invidunt duo dolores et duo sit. Vero diam ea vero et dolore rebum, dolor rebum eirmod consetetur invidunt sed sed et, lorem duo et eos elitr, sadipscing kasd ipsum rebum diam. Dolore diam stet rebum sed tempor kasd eirmod. Takimata kasd ipsum accusam sadipscing, eos dolores sit no ut diam consetetur duo justo est, sit sanctus diam tempor aliquyam eirmod nonumy rebum dolor accusam, ipsum kasd eos consetetur at sit rebum, diam kasd invidunt tempor lorem, ipsum lorem elitr sanctus eirmod takimata dolor ea invidunt.</p>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item px-0">
-                                        Sit erat duo lorem duo ea consetetur, et eirmod takimata.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Duo amet accusam eirmod nonumy stet et et stet eirmod.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
-                                    </li>
-                                  </ul> 
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item px-0">
-                                        Sit erat duo lorem duo ea consetetur, et eirmod takimata.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Duo amet accusam eirmod nonumy stet et et stet eirmod.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
-                                    </li>
-                                  </ul> 
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div class="tab-pane fade" id="tab-pane-3">
                         <div class="row">
-                            <div class="col-md-6">
-                                <h4 class="mb-4">{{ count($product->reviews) }} review for "Colorful Stylish Shirt"</h4>
-                                @foreach ($product->reviews as $review )
-                                <div class="media mb-4">
-                                    <img src="{{ asset('dashassests\img\team\58.png') }}" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                                    <div class="media-body">
-                                        <h6>{{ $review->user->name }}<small> - <i>{{ $review->created_at }}</i></small></h6>
-                                        <div class="text-primary mb-2">
-                                            @for ($i = 0; $i < $review->rate; $i++)
-                                            <i class="fas fa-star"></i>
-                                        @endfor
-                                            
-                                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h4 class="mb-4">{{ count($product->reviews) }} Review(s) for {{ $product->name }}</h4>
+                                    @foreach ($product->reviews as $review)
+                                        <div class="media mb-4 border rounded p-3 shadow-sm">
+                                            <img src="{{ asset('dashassests/img/team/58.png') }}" alt="Image" class="img-fluid mr-3" style="width: 45px; border-radius: 50%;">
+                                            <div class="media-body">
+                                                <h6 class="font-weight-bold">{{ $review->user->name }} <small class="text-muted"> - <i>{{ $review->created_at->format('d M, Y') }}</i></small></h6>
+                                                <div class="text-primary mb-2">
+                                                    @for ($i = 0; $i < $review->rate; $i++)
+                                                        <i class="fas fa-star"></i>
+                                                    @endfor
+                                                </div>
+                                                <p class="mb-0">{{ $review->content }}</p>
+                                            </div>
                                         </div>
-                                        <p>{{ $review->content }}</p>
-                                    </div>
+                                    @endforeach
                                 </div>
-                                @endforeach
-                               
-                            </div>
-                            <div class="col-md-6">
-                                <h4 class="mb-4">Leave a review</h4>
-                                <small>Your email address will not be published. Required fields are marked *</small>
-                                <form action="/client/review/store" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                    <div class="form-group">
-                                        <label class="mb-0 mr-2">Your Rating * :</p>
-                                        <input type="number" max="5" min="1" class="form-control" name="rate"/>
+                            
+                                <div class="col-md-6">
+                                    <h4 class="mb-4">Leave a Review</h4>
+                                    <small class="text-muted">Your email address will not be published. Required fields are marked *</small>
+                                    <form action="/client/review/store" method="POST" class="mt-3">
+                                        @csrf
+                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                        <div class="form-group">
+                                            <label class="mb-0">Your Rating * :</label>
+                                            <input type="number" max="5" min="1" class="form-control" name="rate" required />
                                         </div>
-
-                                    <div class="form-group">
-                                        <label for="message">Your Review *</label>
-                                        <textarea  cols="30" rows="5" class="form-control" name="content"></textarea>
-                                    </div>
-                                    <div class="form-group mb-0">
-                                        <input type="submit" value="Leave Your Review" class="btn btn-primary px-3">
-                                    </div>
-                                </form>
+                            
+                                        <div class="form-group">
+                                            <label for="message">Your Review * :</label>
+                                            <textarea cols="30" rows="5" class="form-control" name="content" required></textarea>
+                                        </div>
+                            
+                                        <div class="form-group mb-0">
+                                            <input type="submit" value="Leave Your Review" class="btn btn-primary px-3">
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
+                            
+                            <style>
+                                .media {
+                                    background-color: #f8f9fa; /* Light background for review cards */
+                                    transition: box-shadow 0.3s ease;
+                                }
+                            
+                                .media:hover {
+                                    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+                                }
+                            
+                                .form-control {
+                                    border-radius: 0.5rem; /* Rounded corners for inputs */
+                                    border: 1px solid #ced4da; /* Light border for inputs */
+                                    transition: border-color 0.3s ease;
+                                }
+                            
+                                .form-control:focus {
+                                    border-color: #007bff; /* Primary border color on focus */
+                                    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Subtle glow on focus */
+                                }
+                            
+                                .btn-primary {
+                                    background-color: #007bff; /* Primary button color */
+                                    border: none; /* No border for buttons */
+                                }
+                            
+                                .btn-primary:hover {
+                                    background-color: #0056b3; /* Darker shade on hover */
+                                }
+                            
+                                .text-muted {
+                                    font-size: 0.9rem; /* Smaller text for notes */
+                                }
+                            </style>
+                            
                         </div>
                     </div>
                 </div>
@@ -283,4 +303,4 @@
     <script src="{{ asset('mainassests/js/main.js') }}"></script>
 </body>
 
-</html>
+</html

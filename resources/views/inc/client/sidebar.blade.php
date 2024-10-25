@@ -1,5 +1,4 @@
 
-
   <nav class="navbar navbar-light navbar-vertical navbar-vibrant navbar-expand-lg">
     <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
       <div class="navbar-vertical-content scrollbar">

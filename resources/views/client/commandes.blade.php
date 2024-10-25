@@ -41,7 +41,7 @@
                             <th>Command</th>
                             <th>State</th>
                             <th>Date</th>
-                            <th>Price Total</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -62,6 +62,7 @@
                             </td>
                     
                             <td>{{ $c->created_at }}</td>
+                            
                          </tr>
                     @endforeach
                     
@@ -72,18 +73,7 @@
         
           </div>
          
-          <footer class="footer bg-light text-center py-4">
-            <div class="container">
-              <div class="row justify-content-between align-items-center">
-                <div class="col-12 col-sm-auto mb-2 mb-sm-0">
-                  <p class="mb-0 text-900">Thank you for shopping with <strong class="text-primary">YourStore</strong>!<span class="d-none d-sm-inline-block"></span><span class="mx-1">|</span><br class="d-sm-none">2024 &copy; <a href="https://yourstore.com" class="text-primary">YourStore</a></p>
-                </div>
-                <div class="col-12 col-sm-auto">
-                  <p class="mb-0 text-600">Explore our collections | Version: <strong>v1.1.0</strong></p>
-                </div>
-              </div>
-            </div>
-          </footer>          
+          @include('inc.admin.footer')          
         </div>
       </div>
     </main>
