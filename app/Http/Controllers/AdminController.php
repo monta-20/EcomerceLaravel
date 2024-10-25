@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -36,6 +37,23 @@ class AdminController extends Controller
     
         // Redirect the user back to the admin profile page with a success message
         return redirect('/admin/profile')->with('success','Admin update with success');
+    }
+
+    //List of clients
+
+    public function client(){
+       // $clients = User::all();//List of clients and admins
+          $clients = User::where('role','user')->get(); //give only users(clients)
+        return view('admin.clients.index')->with('clients',$clients);
+    }
+
+    //block client
+    public function BlockedClient($idclient){
+        $clients = User::find($idclient);
+        $clients->isactive = false ;
+        $clients->update();
+
+        return redirect()->back()->with('success','Client is blocked');
     }
     
 }

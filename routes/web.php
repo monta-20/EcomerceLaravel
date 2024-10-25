@@ -59,6 +59,11 @@ Route::get('/admin/profile',[App\Http\Controllers\AdminController::class, 'profi
 //Profile admin update
 Route::post('/admin/profile/update',[App\Http\Controllers\AdminController::class, 'updateProfile'])->middleware(admin::class,'auth');
 
+//Admin list of clients
+Route::get('/admin/clients',[App\Http\Controllers\AdminController::class, 'client'])->middleware(admin::class,'auth');
+
+//Admin Blocked clients
+Route::get('/admin/user/{id}/blocked',[App\Http\Controllers\AdminController::class, 'BlockedClient'])->middleware(admin::class,'auth');
 //Profile client
 Route::get('/client/profile',[App\Http\Controllers\ClientController::class, 'profile'])->middleware('auth');
 

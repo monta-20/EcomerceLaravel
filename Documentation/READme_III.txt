@@ -96,14 +96,22 @@
      If the user doesn't have any ongoing orders, the system creates a new order, associates it with the user, and then adds the selected product as a line item in that new order.
 
 26. Client card 
-    - add page card for print the line of Commandes 
+    - add page card for print the line of Commands 
 27. Client Cart remove product and edit quantity
     - Update Quantity of product commands to avoid duplicate same product command
     - Remove command
 28.  Client Cart , Total , checkout
     - Calculate total of commands
-    - Proced chekchout i not not use gateway example(paypal ,flousi,...) but i just valid command 
+    - Proceed checkout i not not use gateway example(paypal ,flousi,...) but i just valid command 
 29 . Client commandes
-    - print all commandes of user 
+    - print all commands of user 
+30. Admin : Block User
+    - Give List of Client account and print
+    - Block User 
+       - i add field in DB (isactive) in table users for controller user blocked or not.
+       - php artisan make:migration add_is_active --table=users //add field in table users => add field in database without loss all data
+          -- this file add field : database\migrations\2024_10_25_111802_add_is_active.php
+       - php artisan migrate
+
 
 
